@@ -24,7 +24,7 @@ SECRET_KEY = 'dc!igvt!4fy^i&k@fz3p=@q9_+)aa*$8&b(+21nl-ur0gsqqfg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-ALLOWED_HOSTS = ['127.0.0.1', 'iskan20022.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'botbuus.pythonanywhere.com']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
