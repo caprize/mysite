@@ -1,48 +1,14 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
-
-    <!-- {% for post in posts %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-        </div>
-    {% endfor %} -->
-    <div class="all">
-        <div class="header">
-            <div class="container">
-                <div class="header_logo">
-                </div>
-                <nav class="header_nav">
-                    <a class="header_nav_item" href="{% url 'send_bot' %}">Купить бота</a>
-                    
-                    <a class="header_nav_item" href="#bot_take">Получение бота</a>
-                    <a class="header_nav_item" href="#other">Дополнительно</a>
-                </nav>
-                <div class="our_contacts">
-                    <div class="contact_info">
-                        Как с нами связаться?
-                    </div>
-                    <nav class="nav_contacts">
-                        <a href="https://t.me/LimiO_ananas" class="nav_contacts_item">Telegram</a>
-                        <a href="https://vk.com/vagizov98" class="nav_contacts_item">Вконтакте</a>
-                    </nav>
-                </div>
-            </div>
-        </div> 
-
-        <div class="main_bots">
-            <div class="container">
-                <div class="our_bots">
-                    Наши боты
-                </div>
-                
+            
+            <div class="main_bots">
+                <div class="container">
+                    <div class="our_bots">
+                        Наши боты
+                    </div>      
                 <div class="list_of_bots">
-
-                    {% for post in posts %}
+                     {% for post in posts %}
                         <a href="{% url 'post_detail' pk=post.pk %}" class="bot_link">
                     
                             <div class="bot">
@@ -51,79 +17,58 @@
                                 </div>
                                 <div class="bot_text">
                                     <p>{{ post.maintext|linebreaksbr }}</p>
-                                    <img src="{{ post.image }}">  
+                                    <img src="{{ MEDIA_URL }}{{ post.image}}"  alt="robot_seller" style="width: 60%;">  
                                 </div>
                             </div>
                         </a>
-                    <!-- <a href="#" class="bot_link">
-                        <div class="bot">
-                            <div class="bot_name">
-                                Бот для продаж
-                            </div>
-                            <div class="bot_text">
-                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="bot_link">
-                        <div class="bot">
-                            <div class="bot_name">
-                                Бот для продаж
-                            </div>
-                            <div class="bot_text">
-                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
-                            </div>
-                        </div>
-                    </a> -->
                     {% endfor %}
+
+                            
                 </div>
-                
-                <div class="about_sell">
-                    <a name="sell">
-                        <div class="about_header" name="sell">
-                            Все о покупке бота
+                <div class="container">
+                    <div class="grid">
+                        <div class="about_sell" style="grid-column-start: 1; grid-column-end: 2;
+                        grid-row-start:1; grid-row-end: 3;" >
+                            <a name="sell">
+                                <div class="about_header" name="sell">
+                                    Все о покупке бота
+                                </div>
+                            </a>
+                            <div class="about_main">
+                                -Сколько стоят боты?<br>
+                                У каждого бота есть своя  уникальная цена, которая указана на странице с этим ботом.<br>
+                                <hr>
+                                -Как осмотреть бота?<br>
+                                Чтобы заказать бота, вы должны сначала тщательно изучить все функции наших ботов, а затем решить, хотите ли вы дополнить его чем-нибудь или нет (обычное изменение описания бота и описания текста не считается за изменение). На каждой странице с ботом есть ссылка на него, в виде кнопки, нажав на нее, вы перейдете в бота в телеграме, которого вы можете осмотреть. <br><hr>
+                                -Как заказать бота?<br>После того как вы все изучили и посмотрели, осмотрите форму. В форме есть два поля, в первом укажите свой телеграм в формате @test, а во втором укажите ботов, которые вам присмотрелись, а также, нужны ли вам дополнения или нет. Мы обязательно с вами свяжемся в ближайшее время<br><hr>
+                                -Я не хочу чтобы у вас был доступ к моему боту.<br>
+                                У нас его и не будет. Чтобы у нас не было доступа к вашему боту, вы пишете свой токен в текстовом файле, из которого программа сама будет его брать.
+                                На текстовый файл вы можете поставить пароль, чтобы у вас была гарантия недоступности токена для нас
+                            </div>
                         </div>
-                    </a>
-                    <div class="about_main">
-                        типо текст
-                    </div>
-                </div>
-                <div class="about_sell">
-                    <a name="bot_take">
-                        <div class="about_header">
-                            Получение бота
+                        <div class="about_sell" style="grid-column-start:2; grid-column-end: 3;">
+                            <a name="bot_take">
+                                <div class="about_header">
+                                    Получение бота
+                                </div>
+                            </a>
+                            <div class="about_main">
+                                После того, как мы все обсудим с вами, мы вам отправляем либо файл с ботом, который вы сами будете ставить на сервер, либо мы можем поставить вам бота на сервер за дополнительную плату каждый месяц (она невысокая, не бойтесь, в месяц выйдет не более 150 рублей). В случае неуплаты мы просто снимаем бота и прекращаем сотрудничество с вами до возмещения прошлой задолжности. В случае неуплаты в количестве двух раз, мы прекращаем сотрудничество с вами навсегда. 
+                            </div>
                         </div>
-                    </a>
-                    <div class="about_main">
-                        Чтобы получить нашего бота нужно оставить заявку, наши менеджеры сразу с вами свяжутся и обговорят детали сделки
-                    </div>
-                </div>
-                <div class="about_sell">
-                    <a name="other">
-                        <div class="about_header" name="other">
-                            Дополнительно
+                        <div class="about_sell">
+                            <a name="other">
+                                <div class="about_header">
+                                    Дополнительно
+                                </div>
+                            </a>
+                            <div class="about_main">
+                                Мы можем предоставить вам не только тех ботов с некоторыми изменениями, которые есть у нас, но и подстроить лично под вас. Для этого заполните форму (о ней можете прочитать в блоке "Все о покупке бота"). После передачи бота вам, мы не обязаны редактировать его по вашим просьбам. Если вы хотите его дополнить, в обязательном порядке заполните форму, а затем мы свяжемся с вами для уточнения суммы вашего заказа.
+                            </div>
                         </div>
-                    </a>
-                    <div class="about_main">
-                        типо текст
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class="container">
-                <div class="about_project">
-                    <div class="about_project_item">
-                        Сайт создан <a href="https://vk.com/vagizov98" class="about_project_link">Вагизовым Искандером</a> и <a href="https://t.me/LimiO_ananas" class="about_project_link">Рябых Альбертом</a> в 2018 году
-                    </div>
-                    <div class="about_project_item">
-                        По поводу обсуждения дополнительных функций для бота или написания нового, обращаться в телеграм <a href="https://t.me/LimiO_ananas" class="about_project_link">@LimiO_ananas</a>
-                    </div>
-                    <div class="about_project_item">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 {% endblock %}

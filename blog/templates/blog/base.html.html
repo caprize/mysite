@@ -1,11 +1,153 @@
- <!-- <div class="page-header">
-            {% if user.is_authenticated %}
-                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-                <a href="{% url 'logout' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-            {% else %}
-                <a href="register" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-                <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-            {% endif %}
-            <h1><a href="/">Django Girls Blog</a></h1>
-style="display:flex; flex-direction: column;"
+{% load static %}
+<html>
+    <head>
+        
+        <meta charset="UTF-8">
+        <title>Сайт по продаже ботов</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400,400i,500,500i,700,700i,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+       
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+
+
+
+
+
+    <!-- {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %} -->
+    <div class="all">
+        <div class="header">
+            <div class="container">
+                <div class="header_logo">
+                </div>
+                <nav class="header_nav">
+                    <a class="header_nav_item" href="{% url 'send_bot' %}">Купить бота</a>
+                    
+                    <a class="header_nav_item" href="#bot_take">Получение бота</a>
+                    <a class="header_nav_item" href="#other">Дополнительно</a>
+                </nav>
+                <div class="our_contacts">
+                    <div class="contact_info">
+                        Как с нами связаться?
+                    </div>
+                    <nav class="nav_contacts">
+                        <a href="https://t.me/LimiO_ananas" class="nav_contacts_item">Telegram</a>
+                        <a href="https://vk.com/vagizov98" class="nav_contacts_item">Вконтакте</a>
+                    </nav>
+                </div>
+            </div>
+        </div> 
+
+        <div class="main_bots">
+            <div class="container">
+                <div class="our_bots">
+                    Наши боты
+                </div>
+                
+                <div class="list_of_bots">
+
+                    {% for post in posts %}
+                        <a href="{% url 'post_detail' pk=post.pk %}" class="bot_link">
+                    
+                            <div class="bot">
+                                <div class="bot_name">
+                                    {{ post.title }}
+                                </div>
+                                <div class="bot_text">
+                                    <p>{{ post.maintext|linebreaksbr }}</p>
+                                    <img src="{{ MEDIA_URL }}{{ post.image}}">
+
+                                </div>
+                            </div>
+                        </a>
+                    <!-- <a href="#" class="bot_link">
+                        <div class="bot">
+                            <div class="bot_name">
+                                Бот для продаж
+                            </div>
+                            <div class="bot_text">
+                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="bot_link">
+                        <div class="bot">
+                            <div class="bot_name">
+                                Бот для продаж
+                            </div>
+                            <div class="bot_text">
+                                Что он умеет?<br>Вы можете привязать его к серверу и он будет сам продавать за вас товары
+                            </div>
+                        </div>
+                    </a> -->
+                    {% endfor %}
+                </div>
+                
+                <div class="about_sell">
+                    <a name="sell">
+                        <div class="about_header" name="sell">
+                            Все о покупке бота
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        типо текст
+                    </div>
+                </div>
+                <div class="about_sell">
+                    <a name="bot_take">
+                        <div class="about_header">
+                            Получение бота
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        Чтобы получить нашего бота нужно оставить заявку, наши менеджеры сразу с вами свяжутся и обговорят детали сделки
+                    </div>
+                </div>
+                <div class="about_sell">
+                    <a name="other">
+                        <div class="about_header" name="other">
+                            Дополнительно
+                        </div>
+                    </a>
+                    <div class="about_main">
+                        типо текст
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="about_project">
+                    <div class="about_project_item">
+                        Сайт создан <a href="https://vk.com/vagizov98" class="about_project_link">Вагизовым Искандером</a> и <a href="https://t.me/LimiO_ananas" class="about_project_link">Рябых Альбертом</a> в 2018 году
+                    </div>
+                    <div class="about_project_item">
+                        По поводу обсуждения дополнительных функций для бота или написания нового, обращаться в телеграм <a href="https://t.me/LimiO_ananas" class="about_project_link">@LimiO_ananas</a>
+                    </div>
+                    <div class="about_project_item">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

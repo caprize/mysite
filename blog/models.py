@@ -9,11 +9,11 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     maintext = models.TextField()
+    boturl=models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    image = models.ImageField(blank=True, upload_to='static/media')
-
-
+    image = models.ImageField(blank=True, upload_to='blog/static/media/', help_text='280x150px', verbose_name='Ссылка картинки')
+    index = models.IntegerField(verbose_name='Индекс')
     def publish(self):
         self.published_date = timezone.now()
         self.save()

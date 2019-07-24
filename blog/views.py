@@ -18,11 +18,31 @@ BASE_URL='https://api.telegram.org/bot/731947153:AAETaq49IdPhGCg9YssRF6RmW3ZIjzA
 TOKEN = '731947153:AAETaq49IdPhGCg9YssRF6RmW3ZIjzAdX4o'
 tb = telebot.TeleBot(TOKEN)
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    posts = Post.objects.order_by('index').all()
     return render(request, 'blog/post_list.html', {'posts': posts})
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+
+        if form.is_valid():
+            user=''
+            post = form.save(commit=False)
+
+            post.save()
+            user+='Заказ:'+' \n'
+            user+='Айди пользователя: '
+            user+= post.tgid + ' \n'
+            user+= 'Суть заказа: '
+            user+= post.dops + ' \n'
+            tb.send_message(-381217332, user)
+            
+            return redirect('post_list')
+            
+
+    else:
+        form = OrderForm()
+    return render(request, 'blog/post_detail.html', {'post': post},{'form': form} )
 @login_required
 def post_new(request):
     if request.method == "POST":

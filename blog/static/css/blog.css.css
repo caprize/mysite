@@ -1,11 +1,12 @@
-/*body{
+body{
     margin:0;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    color:white;
 }
 /* https://fonts.google.com/specimen/Lobster?selection.family=Kaushan+Script|Montserrat:100,400,400i,500,500i,700,700i,900 */
-/**,*:after,*:before{
+*,*:after,*:before{
     -webkit-box-sizing: border-box ;
        -moz-box-sizing: border-box ;
             box-sizing: border-box ;
@@ -19,9 +20,13 @@
 .header{
     width: 100%;
     background: black;
+    background-size:auto 100%;
+    border:4px solid black;
+    border-bottom-color:red;
 }
 
 .container{
+    position: relative;
     margin:0 auto;
     width: 100%;
     max-width: 1280px;
@@ -29,7 +34,7 @@
 
 .header_nav{
     padding-top:30px;
-    display:flex;
+    display: flex;
     flex-wrap:wrap;
     -webkit-justify-content: flex-end;
             justify-content: flex-end;
@@ -116,6 +121,8 @@
 }
 
 .main_bots{
+    background:white;
+    background-size:100% 100%;
     width: 100%;
 }
 
@@ -131,7 +138,7 @@
 .our_bots:after{
     content:"";
     display:block;
-    background:#f38181;
+    background:red;
     top:100%;
     width: 100px;
     height: 5px;
@@ -149,11 +156,11 @@
 }
 
 .bot{
-    background:rgb(227,82,24);
+    background:black;
     text-align: center;
-    width: 200px;
+    width: 300px;
     display:inline-block;
-    border: 2px solid black;
+    border: 4px solid red;
     border-radius:10px;
     -webkit-transition: transform 0.2s linear;
        -moz-transition: transform 0.2s linear;
@@ -167,7 +174,7 @@
     font-weight: bold;
     padding-top: 10px;
     text-transform: uppercase;
-    color:black;
+    color:white;
 }
 
 .bot_link{
@@ -175,14 +182,14 @@
     color:white;
 }
 .bot:hover{
-    transform:translate3d(-10px,-10px,0);
+    transform:translate3d(-15px,-15px,0);
 }
 
 .bot_text{
     padding-left:10px;
     text-align: left;
-    font-size: 12px;
-    color:black;
+    font-size: 15px;
+    color:rgb(155,155,155);
     font-weight: bold;
     padding-top:20px;
     padding-bottom:40px;
@@ -192,16 +199,15 @@
 .about_sell{
     display:inline-block;
     width: 100%;
-    background:rgb(227,82,24);
-    border: 2px solid black;
-    border-radius:10px;
+    background: black;
+    border: 4px solid red;
     margin-bottom:100px;
 }
 
 .about_header{
     font-size: 20px;
     font-weight: bold;
-    color:black;
+    color:white;
     text-align: center;
     padding-top:20px;
     padding-bottom:20px;
@@ -209,13 +215,15 @@
 
 .about_main{
     font-size: 16px;
-    color:black;
+    color:white;
     font-weight: bold;
     padding: 0 40px 40px;
     text-align: left;
 }
 
 .footer{
+    border:4px solid black;
+    border-top-color:red;
     width: 100%;
     background:black;
 }
@@ -252,14 +260,65 @@
 
 /* NEW FILE */
 
-/*.bot_info_1_text{
+.bot_info_1_text{
     padding: 40px;
     width: 100%;
     display:inline-block;
-    background:rgb(49,105,209);
-    border: 2px solid black;
-    border-radius:10px;
+    background:black;
+    border: 4px solid red;
     margin-bottom:100px;
     font-weight: bold;
+    color:white;
     font-size: 18px;
-}*/*/*/
+}
+
+.info_bot_1{
+    background:white;
+}
+
+.pay{
+    display:inline-block;
+    width: 100%;
+    max-width: 400px;
+    background:black;
+    border:4px solid red;
+    margin: 0 40px 100px;
+    
+}
+
+.input_style{
+    padding-left:10px;
+    border:2px solid red;
+    background:white;
+    width: 90%;
+    height:40px;
+    margin: 20px;
+    border-radius:7px;
+}
+
+.button_input_style{
+    width: 50%;
+    padding:5px;
+    margin: 0 auto 20px;
+    border:2px solid red;
+    background:white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius:7px;
+    text-transform: uppercase;
+    -webkit-transition: color 0.2s linear;
+       -moz-transition: color 0.2s linear;
+        -ms-transition: color 0.2s linear;
+         -o-transition: color 0.2s linear;
+            transition: color 0.2s linear;
+    -webkit-transition: background 0.2s linear;
+       -moz-transition: background 0.2s linear;
+        -ms-transition: background 0.2s linear;
+         -o-transition: background 0.2s linear;
+            transition: background 0.2s linear;
+}
+
+.button_input_style:hover{
+    color:white;
+    background:black;
+}
