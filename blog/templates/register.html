@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  
+<div class="pay">
+	<form class="my-form" method="post" style="display:flex; flex-direction: column;">
+	{% csrf_token %}
+	<input type="text" class="input_style" name="username" value="" placeholder="Ваш никнейм"  maxlength="200" id="id_username" required />
+	<input type="text" class="input_style" name="email" value="" placeholder="Ваша почта"  maxlength="200" id="id_email" required />
+	<input type="text" class="input_style" name="password1" value="" placeholder="Пароль"  maxlength="200" id="id_password1" required />
+	<input type="text" class="input_style" name="password2" value="" placeholder="Повторите Пароль"  maxlength="200" id="id_password2" required />
+	<input type="submit" value="Зарегистрировать">
+	</form>
+</div>
+{% endblock %}  
+

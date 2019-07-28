@@ -17,12 +17,12 @@ from django.urls import path, include
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
-
+from blog import views
 from django.contrib.auth import views 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('', include('blog.urls')),
     path('accounts/logout/', views.LogoutView.as_view(next_page='/'), name='logout'),
-    # path('accounts/register',views.register(next_page='/'))
+    
 ]

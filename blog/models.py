@@ -12,7 +12,7 @@ class Post(models.Model):
     boturl=models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    image = models.ImageField(blank=True, upload_to='blog/static/media/', help_text='280x150px', verbose_name='Ссылка картинки')
+    image = models.ImageField(blank=True, upload_to='blog/static/media/', help_text='250x250px', verbose_name='Ссылка картинки')
     index = models.IntegerField(verbose_name='Индекс')
     def publish(self):
         self.published_date = timezone.now()
@@ -23,4 +23,5 @@ class Post(models.Model):
 class Order(models.Model):
     dops=models.TextField()
     tgid=models.CharField(max_length=200)
+
         

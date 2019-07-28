@@ -20,9 +20,16 @@
                             </a>
                         </div>
                         <nav class="header_nav">
+                            {% if user.is_authenticated %}
+
                             <a class="header_nav_item" href="{% url 'post_list' %}#sell">Купить бота</a>
                             <a class="header_nav_item" href="{% url 'post_list' %}#bot_take">Получение бота</a>
                             <a class="header_nav_item" href="{% url 'post_list' %}#other">Дополнительно</a>
+                            <a class="header_nav_item" href="{% url 'logout' %}">Выйти</a>
+                            {% else %}
+                            <a class="header_nav_item" href="{% url 'register' %}">Зарегистрироваться</a>
+                            <a class="header_nav_item" href="{% url 'login' %}">Войти</a>
+                            {%endif%}
                             <div class="dropdown dropright" style="margin-top:-5px; ">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: rgb(33,133,208); border-color: rgb(33,133,208); font-weight: bold">
                                     Контакты
