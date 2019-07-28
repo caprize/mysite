@@ -54,8 +54,6 @@ def Register(request):
         form = MyForm()
 
     return render_to_response('register.html', {'form' : form})
-def sasatb(request):
-    lol=[]
 def post_list(request):
     posts = Post.objects.order_by('index').all()
     return render(request, 'blog/post_list.html', {'posts': posts})
