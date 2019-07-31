@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
-
+import dj_database_url
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dc!igvt!4fy^i&k@fz3p=@q9_+)aa*$8&b(+21nl-ur0gsqqfg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 # MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-ALLOWED_HOSTS = ['127.0.0.1', 'tatarbots.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'tatarbot.herokuapp.com']
 LOGIN_REDIRECT_URL = '/'
 
 # Application definition
@@ -121,8 +121,5 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
