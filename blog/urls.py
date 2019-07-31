@@ -12,4 +12,4 @@ urlpatterns = [
     path('post/send_bot/', views.send_bot, name='send_bot'),
     path('accounts/register/', views.Register, name="register"),
 
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
