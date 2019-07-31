@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dc!igvt!4fy^i&k@fz3p=@q9_+)aa*$8&b(+21nl-ur0gsqqfg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 ALLOWED_HOSTS = ['127.0.0.1', 'tatarbot.herokuapp.com']
 LOGIN_REDIRECT_URL = '/'
